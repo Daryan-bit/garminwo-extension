@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GarminWO — Politique de confidentialité</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f9;
+    color: #1a1c20;
+    line-height: 1.7;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 48px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+  }
+  .logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00c9a7;
+    margin-bottom: 4px;
+  }
+  .sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #eef9f7;
+  }
+  h1 {
+    font-size: 22px;
+    color: #1a1c20;
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 15px;
+    color: #00a88c;
+    margin: 28px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  p { font-size: 14px; color: #374151; margin-bottom: 12px; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { font-size: 14px; color: #374151; margin-bottom: 6px; }
+  .highlight {
+    background: #eef9f7;
+    border-left: 4px solid #00c9a7;
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #065f46;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 12px;
+    color: #9ca3af;
+    text-align: center;
+  }
+  a { color: #00a88c; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div style="float:right;font-size:12px;color:#6b7280;">
+    🌍 <strong>Français</strong> · <a href="privacy-policy-en.html" style="color:#00a88c;text-decoration:none;">English</a>
+  </div>
+  <div class="logo">GarminWO</div>
+  <div class="sub">Extension Chrome — Import d'entraînements via image · Développé par DARLAVOIX Yannick</div>
+
+  <h1>Politique de confidentialité</h1>
+  <p><em>Dernière mise à jour : avril 2026</em></p>
+
+  <div class="highlight">
+    🔒 GarminWO ne collecte, ne stocke et ne transmet aucune donnée personnelle à des serveurs tiers. Tout reste sur votre navigateur.
+  </div>
+
+  <h2>1. Données collectées</h2>
+  <p>GarminWO Extension collecte uniquement :</p>
+  <ul>
+    <li><strong>Clé API Anthropic</strong> : stockée localement dans le navigateur via <code>chrome.storage.local</code>. Elle n'est jamais transmise à un serveur autre qu'Anthropic (api.anthropic.com) pour l'analyse d'image.</li>
+    <li><strong>Images téléchargées</strong> : envoyées directement depuis votre navigateur vers l'API Anthropic pour analyse. Elles ne transitent par aucun serveur intermédiaire.</li>
+  </ul>
+
+  <h2>2. Données non collectées</h2>
+  <p>L'extension ne collecte pas et n'a pas accès à :</p>
+  <ul>
+    <li>Identifiants Garmin Connect (gérés par votre session active)</li>
+    <li>Données d'activité ou de santé</li>
+    <li>Historique de navigation</li>
+    <li>Informations personnelles (nom, email, localisation)</li>
+    <li>Données de paiement</li>
+  </ul>
+
+  <h2>3. Services tiers utilisés</h2>
+  <p><strong>API Anthropic (Claude)</strong> — L'analyse des images est effectuée via l'API Anthropic. Votre clé API et les images sont transmises directement depuis votre navigateur vers Anthropic. Consultez la politique de confidentialité d'Anthropic : <a href="https://www.anthropic.com/legal/privacy" target="_blank">anthropic.com/legal/privacy</a></p>
+  <p><strong>Garmin Connect</strong> — L'import d'entraînements utilise votre session Garmin Connect active. Aucun identifiant n'est stocké par l'extension. Consultez la politique de confidentialité de Garmin : <a href="https://www.garmin.com/fr-FR/privacy/global-policy/" target="_blank">garmin.com/privacy</a></p>
+
+  <h2>4. Stockage local</h2>
+  <p>La clé API Anthropic est stockée dans <code>chrome.storage.local</code> — un espace de stockage isolé, propre à votre navigateur et accessible uniquement par cette extension. Elle peut être supprimée à tout moment via le popup de l'extension (case "Effacer les identifiants") ou en désinstallant l'extension.</p>
+
+  <h2>5. Permissions utilisées</h2>
+  <ul>
+    <li><strong>storage</strong> : pour sauvegarder la clé API localement</li>
+    <li><strong>activeTab</strong> : pour interagir avec la page Garmin Connect active</li>
+    <li><strong>host_permissions connect.garmin.com</strong> : pour injecter le bouton et appeler l'API workout</li>
+    <li><strong>host_permissions api.anthropic.com</strong> : pour envoyer les images à analyser</li>
+  </ul>
+
+  <h2>6. Sécurité</h2>
+  <p>Toutes les communications avec Anthropic et Garmin Connect utilisent HTTPS. La clé API n'est jamais affichée en clair dans l'interface (champ de type password).</p>
+
+  <h2>7. Modifications</h2>
+  <p>Cette politique peut être mise à jour en cas d'évolution de l'extension. La date de dernière modification est indiquée en haut de cette page.</p>
+
+  <h2>8. Contact</h2>
+  <p>Pour toute question concernant la confidentialité :<br>
+  <a href="/cdn-cgi/l/email-protection#94edf5fafafdf7ffbaf0f5e6f8f5e2fbfdecd4f3f9f5fdf8baf7fbf9"><span class="__cf_email__" data-cfemail="6f160e0101060c04410b0e1d030e190006172f08020e0603410c0002">[email&#160;protected]</span></a></p>
+
+  <div class="footer">
+    GarminWO Ex
