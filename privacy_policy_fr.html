@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GarminWO — Politique de confidentialité</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f8f9fa;
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+    .container { max-width: 780px; margin: 0 auto; background: white; border-radius: 12px; padding: 48px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .header { border-bottom: 3px solid #00c9a7; padding-bottom: 24px; margin-bottom: 32px; }
+    .logo { font-size: 22px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: #00c9a7; margin-bottom: 4px; }
+    .doc-title { font-size: 26px; font-weight: 700; color: #0d0f14; margin-bottom: 8px; }
+    .meta { font-size: 13px; color: #6b7280; }
+    .lang-switch { float: right; font-size: 12px; }
+    .lang-switch a { color: #00a589; text-decoration: none; background: #e6faf6; padding: 4px 10px; border-radius: 4px; font-weight: 600; }
+    .lang-switch a:hover { background: #00c9a7; color: white; }
+    .summary-box {
+      background: #e6faf6; border-left: 4px solid #00c9a7; border-radius: 0 8px 8px 0;
+      padding: 16px 20px; margin-bottom: 36px; font-size: 14px; font-weight: 600; color: #065f46;
+    }
+    h2 { font-size: 17px; font-weight: 700; color: #0d0f14; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; }
+    h3 { font-size: 14px; font-weight: 700; color: #374151; margin: 20px 0 8px; }
+    p { font-size: 14px; color: #374151; margin-bottom: 10px; }
+    ul { margin: 8px 0 12px 20px; }
+    li { font-size: 14px; color: #374151; margin-bottom: 4px; }
+    li b { color: #0d0f14; }
+    code { font-family: monospace; font-size: 12px; background: #f3f4f6; padding: 1px 5px; border-radius: 3px; color: #00a589; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    th { background: #0d0f14; color: white; padding: 10px 14px; text-align: left; font-weight: 600; }
+    td { padding: 10px 14px; border-bottom: 1px solid #e5e7eb; color: #374151; }
+    tr:nth-child(even) td { background: #f8f9fa; }
+    td:first-child { font-family: monospace; font-size: 12px; color: #00a589; font-weight: 600; }
+    a { color: #00a589; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge { display: inline-block; background: #e6faf6; color: #00a589; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; margin-left: 8px; vertical-align: middle; }
+    .no-server { background: #0d0f14; color: #00c9a7; border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 14px; font-weight: 600; text-align: center; letter-spacing: 1px; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="lang-switch"><a href="privacy_policy_en.html">🇬🇧 English</a></div>
+    <div class="logo">GarminWO</div>
+    <div class="doc-title">Politique de confidentialité</div>
+    <div class="meta">Dernière mise à jour : 15 avril 2026 &nbsp;·&nbsp; Version extension : 1.4.2 &nbsp;·&nbsp; <a href="https://github.com">Voir sur GitHub</a></div>
+  </div>
+
+  <div class="summary-box">
+    🔒 En résumé : GarminWO ne collecte aucune donnée personnelle, ne dispose d'aucun serveur, et ne vend ni ne partage vos informations.
+  </div>
+
+  <h2>1. Présentation</h2>
+  <p>GarminWO est une extension Chrome gratuite qui importe des entraînements running dans Garmin Connect en analysant des photos de séances ou du texte grâce à une IA (Google Gemini ou Anthropic Claude). Cette politique explique quelles données sont traitées, comment elles sont utilisées et quels sont vos droits.</p>
+
+  <div class="no-server">⚡ GarminWO n'a aucun serveur — tout le traitement s'effectue dans votre navigateur</div>
+
+  <h2>2. Données traitées</h2>
+
+  <h3>2.1 Clés API</h3>
+  <ul>
+    <li><b>Quoi :</b> Votre clé API Gemini (Google) ou Claude (Anthropic), saisie volontairement dans le popup de l'extension.</li>
+    <li><b>Où stockée :</b> Uniquement en local sur votre appareil, via l'API Chrome <code>chrome.storage.local</code>.</li>
+    <li><b>Jamais :</b> Transmise à un serveur GarminWO (il n'en existe pas), partagée avec des tiers, ni stockée hors de votre navigateur.</li>
+  </ul>
+
+  <h3>2.2 Images</h3>
+  <ul>
+    <li><b>Quoi :</b> Photos ou captures d'écran que vous fournissez pour l'analyse, y compris les images capturées via le clic droit sur n'importe quelle page web.</li>
+    <li><b>Comment utilisées :</b> Converties en Base64 et envoyées directement depuis votre navigateur vers l'API IA sélectionnée (Gemini ou Claude), uniquement pour l'analyse de la séance.</li>
+    <li><b>Jamais :</b> Stockées au-delà de la durée de l'analyse, conservées par GarminWO, ni envoyées à un serveur GarminWO.</li>
+    <li><b>Traitement tiers :</b> Les images sont traitées par Google ou Anthropic selon leurs politiques de confidentialité respectives.</li>
+  </ul>
+
+  <h3>2.3 Texte sélectionné</h3>
+  <ul>
+    <li><b>Quoi :</b> Texte que vous sélectionnez sur une page web et envoyez à GarminWO via le menu contextuel (clic droit).</li>
+    <li><b>Comment utilisé :</b> Envoyé directement à l'API IA sélectionnée pour l'analyse du plan d'entraînement.</li>
+    <li><b>Jamais :</b> Stocké, journalisé, ni transmis ailleurs qu'à l'API IA.</li>
+  </ul>
+
+  <h3>2.4 Session Garmin Connect</h3>
+  <ul>
+    <li><b>Quoi :</b> GarminWO utilise votre session Garmin Connect existante dans le navigateur (cookies) pour authentifier les appels API d'import et de suppression d'entraînements.</li>
+    <li><b>Comment utilisée :</b> Les cookies sont lus depuis le contexte de la page Garmin Connect pour authentifier les requêtes vers l'API Garmin Connect uniquement.</li>
+    <li><b>Jamais :</b> Les cookies ou identifiants ne sont stockés par GarminWO ni transmis en dehors des endpoints de l'API Garmin Connect.</li>
+  </ul>
+
+  <h2>3. Permissions utilisées</h2>
+  <table>
+    <tr><th>Permission</th><th>Utilité</th></tr>
+    <tr><td>storage</td><td>Stocker votre clé API et préférence de moteur localement sur votre appareil</td></tr>
+    <tr><td>contextMenus</td><td>Ajouter "Envoyer à GarminWO" dans le menu clic droit sur les images et textes sélectionnés</td></tr>
+    <tr><td>tabs</td><td>Détecter les onglets Garmin Connect ouverts pour les activer après un clic droit</td></tr>
+    <tr><td>host: *://*/*</td><td>Récupérer les images depuis n'importe quelle page web lors du clic droit sur une image</td></tr>
+    <tr><td>host: connect.garmin.com</td><td>Importer et supprimer des entraînements via l'API Garmin Connect</td></tr>
+    <tr><td>host: api.anthropic.com</td><td>Envoyer images/texte à l'API Claude (uniquement si le moteur Claude est sélectionné)</td></tr>
+    <tr><td>host: generativelanguage.googleapis.com</td><td>Envoyer images/texte à l'API Gemini (uniquement si le moteur Gemini est sélectionné)</td></tr>
+  </table>
+
+  <h2>4. Services tiers</h2>
+  <p>GarminWO s'intègre aux services suivants. Leur utilisation est régie par leurs propres politiques de confidentialité :</p>
+  <ul>
+    <li><b>Google Gemini API</b> — <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+    <li><b>Anthropic Claude API</b> — <a href="https://www.anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></li>
+    <li><b>Garmin Connect</b> — <a href="https://www.garmin.com/en-US/privacy/connect/policy/" target="_blank">garmin.com politique de confidentialité</a></li>
+  </ul>
+
+  <h2>5. Conservation des données</h2>
+  <ul>
+    <li><b>Clés API :</b> Stockées localement jusqu'à ce que vous les effaciez manuellement ou désinstalliez l'extension.</li>
+    <li><b>Images et texte :</b> Non stockés. Traités en mémoire uniquement, supprimés immédiatement après l'analyse.</li>
+    <li><b>Image/texte en attente (clic droit) :</b> Stockés temporairement dans <code>chrome.storage.local</code> et supprimés immédiatement après récupération (usage unique).</li>
+  </ul>
+
+  <h2>6. Publicité et traçage</h2>
+  <p>GarminWO ne contient aucune publicité, aucune analytique, aucune télémétrie et aucun traçage d'aucune sorte. Le développeur n'a accès à aucune donnée que vous traitez avec GarminWO.</p>
+
+  <h2>7. Protection des mineurs</h2>
+  <p>GarminWO ne collecte sciemment aucune information auprès d'enfants de moins de 13 ans. L'extension est destinée aux adultes gérant leurs propres données fitness.</p>
+
+  <h2>8. Modifications de cette politique</h2>
+  <p>En cas de mise à jour, la date "Dernière mise à jour" en haut de ce document sera révisée. Les modifications importantes seront signalées dans le changelog de l'extension sur GitHub.</p>
+
+  <h2>9. Contact</h2>
+  <p>Pour toute question concernant cette politique, veuillez ouvrir une issue sur le <a href="https://github.com">dépôt GitHub</a>.</p>
+
+  <h2>10. Code source ouvert</h2>
+  <p>GarminWO est open source. Vous pouvez examiner l'intégralité du code de l'extension sur GitHub pour vérifier ces affirmations de manière indépendante. <span class="badge">OPEN SOURCE</span></p>
+
+  <footer>
+    GarminWO &nbsp;·&nbsp; Extension Chrome gratuite &nbsp;·&nbsp; Propulsé par Claude &amp; Gemini &nbsp;·&nbsp; Aucun serveur · Aucun traçage · Aucune publicité
+  </footer>
+
+</div>
+</body>
+</html>
