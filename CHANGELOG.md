@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.4.24] — 2026-04-22
+### Changed
+- Removed "Report a Bug" button — replaced by a simple contact email line in the modal footer
+
+## [1.4.23] — 2026-04-22
+### Added
+- Switch engine button (⚡ Retry with Claude/Gemini) appears when quota is exceeded — automatically switches to the other engine and retries
+- Dynamic analysis message: "🔍 Analyse par Gemini en cours..." or "🔍 Analyse par Claude en cours..." depending on selected engine
+- Bug report button (🐛) opening a contact page on GitHub Pages with pre-filled fields
+
+## [1.4.22] — 2026-04-22
+### Added
+- Dynamic loading message shows the AI engine name (Gemini or Claude) instead of generic text
+- Bug report button (🐛) in modal header — opens contact page with version, engine and error pre-filled
+
+## [1.4.21] — 2026-04-22
+### Added
+- Gemini fallback: automatically switches to `gemini-2.0-flash` if `gemini-2.5-flash` returns 429/503
+- Clear quota error message with retry delay extracted from API response
+### Fixed
+- `getApiKey()` protected with try/catch against "Extension context invalidated" error after extension reload
+
 ## [1.4.20] — 2026-04-22
 ### Fixed
 - Duplicate workout names now handled correctly — cache stores a list of IDs per name instead of a single ID, so selecting multiple workouts with the same name no longer causes incorrect count in the delete bar
