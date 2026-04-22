@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GarminWO — Report a Bug</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f6f8; color: #1f2937; line-height: 1.7; }
+    .site-header { background: #0d0f14; border-bottom: 3px solid #00c9a7; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .site-header .logo { font-size: 18px; font-weight: 900; letter-spacing: 3px; color: #00c9a7; text-decoration: none; }
+    .site-header nav a { color: #9ca3af; font-size: 13px; text-decoration: none; margin-left: 20px; transition: color .2s; }
+    .site-header nav a:hover { color: #00c9a7; }
+    .container { max-width: 680px; margin: 48px auto; padding: 0 24px; }
+    .card { background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .card h1 { font-size: 22px; font-weight: 800; color: #0d0f14; margin-bottom: 6px; }
+    .card .sub { font-size: 13px; color: #6b7280; margin-bottom: 28px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #6b7280; margin-bottom: 6px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 10px 14px; border: 1px solid #e5e7eb; border-radius: 8px;
+      font-size: 13px; font-family: inherit; color: #1f2937; background: #f9fafb;
+      outline: none; transition: border-color .2s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: #00c9a7; background: white; }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field .hint { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+    .btn { width: 100%; background: #00c9a7; color: #0d0f14; border: none; padding: 12px; border-radius: 8px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: opacity .2s; margin-top: 8px; }
+    .btn:hover { opacity: .85; }
+    .success { display: none; background: #e6faf6; border: 1px solid #00c9a7; border-radius: 8px; padding: 20px; text-align: center; color: #065f46; font-size: 14px; font-weight: 600; margin-top: 20px; }
+    .info-box { background: #fff3ee; border-left: 3px solid #ff6b35; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: #92400e; }
+    footer { text-align: center; padding: 32px; font-size: 12px; color: #9ca3af; }
+    footer a { color: #00c9a7; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">GarminWO</a>
+  <nav>
+    <a href="https://github.com/Daryan-bit/garminwo-extension">GitHub</a>
+    <a href="privacy_policy_en.html">Privacy</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h1>🐛 Report a Bug</h1>
+    <p class="sub">Found an issue with GarminWO? Fill in the form below and we'll look into it.</p>
+
+    <div class="info-box">
+      ⚠️ If you get a <strong>Quota exceeded</strong> error, this is a Gemini API limit — not a bug. Try switching to Claude or wait until tomorrow (quota resets daily).
+    </div>
+
+    <form id="bug-form">
+      <div class="field">
+        <label>Extension version</label>
+        <input type="text" id="version" placeholder="e.g. 1.4.23" required>
+      </div>
+      <div class="field">
+        <label>AI Engine used</label>
+        <select id="engine">
+          <option value="gemini">Gemini</option>
+          <option value="claude">Claude</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Type of bug</label>
+        <select id="bug-type">
+          <option value="import">Import failed (image/text/JSON)</option>
+          <option value="checkbox">Checkboxes / Bulk delete</option>
+          <option value="redirect">Redirect after import</option>
+          <option value="menu">Right-click context menu</option>
+          <option value="ui">UI / Display issue</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Error message (if any)</label>
+        <textarea id="error-msg" placeholder="Paste the exact error message shown in GarminWO..."></textarea>
+      </div>
+      <div class="field">
+        <label>Steps to reproduce</label>
+        <textarea id="steps" placeholder="1. Go to Garmin Connect Workouts&#10;2. Click the GarminWO button&#10;3. ..." style="min-height:90px;"></textarea>
+      </div>
+      <div class="field">
+        <label>Your email (optional — for follow-up)</label>
+        <input type="email" id="email" placeholder="your@email.com">
+        <div class="hint">Only used to reply to your report. Never shared.</div>
+      </div>
+      <button type="button" class="btn" onclick="submitReport()">📤 Send Report</button>
+    </form>
+
+    <div class="success" id="success-msg">
+      ✅ Thank you! Your report has been sent.<br>
+      <span style="font-weight:400;font-size:12px;color:#047857;">We'll look into it as soon as possible.</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  GarminWO &nbsp;·&nbsp; <a href="https://github.com/Daryan-bit/garminwo-extension">GitHub</a> &nbsp;·&nbsp;
+  <a href="privacy_policy_en.html">Privacy Policy</a>
+</footer>
+
+<script>
+function submitReport() {
+  const version  = document.getElementById('version').value.trim() || 'unknown';
+  const engine   = document.getElementById('engine').value;
+  const bugType  = document.getElementById('bug-type').value;
+  const errorMsg = document.getElementById('error-msg').value.trim() || 'N/A';
+  const steps    = document.getElementById('steps').value.trim() || 'N/A';
+  const email    = document.getElementById('email').value.trim() || 'not provided';
+
+  const subject = encodeURIComponent(`[GarminWO v${version}] Bug: ${bugType}`);
+  const body = encodeURIComponent(
+`GarminWO Bug Report
+===================
+Version  : ${version}
+Engine   : ${engine}
+Bug type : ${bugType}
+Email    : ${email}
+
+Error message:
+${errorMsg}
+
+Steps to reproduce:
+${steps}
+`);
+
+  // Ouvrir le client mail
+  const mailtoLink = `mailto:yannick.darlavoix@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = mailtoLink;
+
+  // Afficher le message de confirmation après 1s
+  setTimeout(() => {
+    document.getElementById('bug-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }, 1000);
+}
+
+// Pré-remplir depuis les paramètres URL (envoyés par l'extension)
+const params = new URLSearchParams(window.location.search);
+if (params.get('version')) document.getElementById('version').value = params.get('version');
+if (params.get('engine'))  document.getElementById('engine').value  = params.get('engine');
+if (params.get('error'))   document.getElementById('error-msg').value = decodeURIComponent(params.get('error'));
+if (params.get('type'))    document.getElementById('bug-type').value = params.get('type');
+</script>
+
+</body>
+</html>
