@@ -92,6 +92,16 @@
       <button type="button" class="btn" onclick="submitReport()">📤 Send Report</button>
     </form>
 
+    <div id="mailto-fallback" style="display:none; margin-top:16px; background:#f8f9fa; border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
+      <p style="font-size:13px; color:#374151; margin-bottom:10px;">
+        If your email client didn't open, copy the report below and send it to:<br>
+        <a href="mailto:yannick.darlavoix@gmail.com" style="color:#00c9a7; font-weight:700;">yannick.darlavoix@gmail.com</a>
+        <button onclick="copyEmail()" style="margin-left:8px; background:none; border:1px solid #00c9a7; color:#00c9a7; border-radius:4px; padding:2px 8px; font-size:11px; cursor:pointer;">Copy address</button>
+      </p>
+      <textarea id="report-copy" style="width:100%; height:160px; font-size:11px; font-family:monospace; border:1px solid #e5e7eb; border-radius:6px; padding:8px; color:#374151;" readonly></textarea>
+      <button onclick="copyReport()" style="margin-top:8px; width:100%; background:#00c9a7; color:#0d0f14; border:none; padding:8px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">📋 Copy report</button>
+    </div>
+
     <div class="success" id="success-msg">
       ✅ Thank you! Your report has been sent.<br>
       <span style="font-weight:400;font-size:12px;color:#047857;">We'll look into it as soon as possible.</span>
@@ -129,15 +139,47 @@ Steps to reproduce:
 ${steps}
 `);
 
-  // Ouvrir le client mail
+  // Tenter d'ouvrir le client mail
   const mailtoLink = `mailto:yannick.darlavoix@gmail.com?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;
 
-  // Afficher le message de confirmation après 1s
+  // Préparer le fallback avec le rapport en texte
+  const reportText = `To: yannick.darlavoix@gmail.com
+Subject: [GarminWO v${version}] Bug: ${bugType}
+
+GarminWO Bug Report
+===================
+Version  : ${version}
+Engine   : ${engine}
+Bug type : ${bugType}
+Email    : ${email}
+
+Error message:
+${errorMsg}
+
+Steps to reproduce:
+${steps}`;
+
+  document.getElementById('report-copy').value = reportText;
+
+  // Afficher le fallback après 2s si le client mail ne s'est pas ouvert
   setTimeout(() => {
-    document.getElementById('bug-form').style.display = 'none';
+    document.getElementById('mailto-fallback').style.display = 'block';
     document.getElementById('success-msg').style.display = 'block';
-  }, 1000);
+  }, 2000);
+}
+
+function copyEmail() {
+  navigator.clipboard.writeText('yannick.darlavoix@gmail.com');
+  event.target.textContent = '✅ Copied!';
+  setTimeout(() => event.target.textContent = 'Copy address', 2000);
+}
+
+function copyReport() {
+  const text = document.getElementById('report-copy').value;
+  navigator.clipboard.writeText(text);
+  event.target.textContent = '✅ Copied!';
+  setTimeout(() => event.target.textContent = '📋 Copy report', 2000);
 }
 
 // Pré-remplir depuis les paramètres URL (envoyés par l'extension)
